@@ -1,7 +1,8 @@
 use std::collections::HashMap;
 use once_cell::sync::Lazy;
 
-pub static AIRPORTS: Lazy<HashMap<String, String>> = Lazy::new(|| {
+pub static AIRPORTS: Lazy<HashMap<String, String>> = Lazy::new(||
+{
 	let mut m = HashMap::new();
 	m.insert("RORA".to_string(), "粟国".to_string());
 	m.insert("RJOE".to_string(), "明野".to_string());

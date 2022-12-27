@@ -17,7 +17,8 @@ struct Handler;
 impl EventHandler for Handler {}
 
 #[tokio::main]
-async fn main() {
+async fn main()
+{
     let framework = StandardFramework::new()
         .configure(|c| c.prefix("?")) // set the bot's prefix to "~"
         .group(&GENERAL_GROUP);
@@ -32,7 +33,8 @@ async fn main() {
         .expect("Error creating client");
 
     // start listening for events by starting a single shard
-    if let Err(why) = client.start().await {
+    if let Err(why) = client.start().await
+    {
         println!("An error occurred while running the client: {:?}", why);
     }
 }
