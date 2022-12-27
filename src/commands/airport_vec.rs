@@ -8,7 +8,7 @@ pub static AIRPORTS: Lazy<HashMap<String, String>> = Lazy::new(||
 	m.insert("RJOE".to_string(), "明野".to_string());
 	m.insert("RJSK".to_string(), "秋田".to_string());
 	m.insert("RJDA".to_string(), "天草".to_string());
-	m.insert("RJKA".to_string(), "甘み".to_string());
+	m.insert("RJKA".to_string(), "奄美".to_string());
 	m.insert("RJSA".to_string(), "青森".to_string());
 	m.insert("RJEC".to_string(), "旭川(Civil)".to_string());
 	m.insert("RJCA".to_string(), "旭川(Mil)".to_string());
