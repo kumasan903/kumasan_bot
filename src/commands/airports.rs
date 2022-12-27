@@ -8,14 +8,10 @@ use crate::commands::airport_vec::AIRPORTS;
 #[command]
 async fn airport(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult {
     let icao = args.single::<String>()?;
-    let airport = AIRPORTS.iter().find(|a| a.icao == icao);
-    if let Some(a) = airport
-    {
-        msg.channel_id.say(&ctx.http, &format!("{}は{}です", icao, a.name)).await?;
-    }
-    else
-    {
-        msg.channel_id.say(&ctx.http, "そのICAOコードは登録されていません").await?;
+    if let Some(name) = AIRPORTS.get(&icao) {
+        msg.channel_id.say(&ctx.http, &format!("{}は {} 空港(飛行場,基地,駐屯地...)です。", icao, name)).await?;
+    } else {
+        msg.channel_id.say(&ctx.http, "そのICAOコードは登録されていません（空港のコードはすべて大文字で入力してください）").await?;
     }
     Ok(())
 }
@@ -23,11 +19,12 @@ async fn airport(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult 
 #[command]
 async fn code(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult {
     let name = args.single::<String>()?;
-    let airport = AIRPORTS.iter().find(|a| a.name == name);
-    if let Some(a) = airport {
-        msg.channel_id.say(&ctx.http, &format!("{}の空港コードは{}です", name, a.icao)).await?;
+    //let icao = AIRPORTS.iter().find(|(_, v)| v == &name);
+    let icao = AIRPORTS.iter().find(|(_, v)| v.as_str() == &name);
+    if let Some((icao, _)) = icao {
+        msg.channel_id.say(&ctx.http, &format!("{}空港(飛行場、基地...)の空港コードは **{}** です", name, icao)).await?;
     } else {
-        msg.channel_id.say(&ctx.http, "その空港名は登録されていません").await?;
+        msg.channel_id.say(&ctx.http, "その空港名は登録されていません（「空港」等は入れずに入力してください）").await?;
     }
     Ok(())
 }

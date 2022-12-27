@@ -1,20 +1,134 @@
+use std::collections::HashMap;
 use once_cell::sync::Lazy;
 
-pub struct Airport {
-    pub icao: String,
-    pub name: String,
-}
-
-pub static AIRPORTS: Lazy<Vec<Airport>> = Lazy::new(|| vec![
-    Airport
-    {
-        icao: "RJFF".to_string(),
-        name: "福岡国際空港".to_string(),
-    },
-    Airport
-    {
-        icao: "RJTT".to_string(),
-        name: "東京国際空港 (成田)".to_string(),
-    },
-    // 他の空港データもここに追加していく
-]);
+pub static AIRPORTS: Lazy<HashMap<String, String>> = Lazy::new(|| {
+	let mut m = HashMap::new();
+	m.insert("RORA".to_string(), "粟国".to_string());
+	m.insert("RJOE".to_string(), "明野".to_string());
+	m.insert("RJSK".to_string(), "秋田".to_string());
+	m.insert("RJDA".to_string(), "天草".to_string());
+	m.insert("RJKA".to_string(), "甘み".to_string());
+	m.insert("RJSA".to_string(), "青森".to_string());
+	m.insert("RJEC".to_string(), "旭川(Civil)".to_string());
+	m.insert("RJCA".to_string(), "旭川(Mil)".to_string());
+	m.insert("RJFA".to_string(), "芦屋".to_string());
+	m.insert("RJTA".to_string(), "厚木".to_string());
+	m.insert("RJCJ".to_string(), "千歳".to_string());
+	m.insert("RJTF".to_string(), "調布".to_string());
+	m.insert("RJGG".to_string(), "中部国際".to_string());
+	m.insert("RJFE".to_string(), "福江".to_string());
+	m.insert("RJNF".to_string(), "福井".to_string());
+	m.insert("RJFF".to_string(), "福岡".to_string());
+	m.insert("RJSF".to_string(), "福島".to_string());
+	m.insert("ROTM".to_string(), "普天間".to_string());
+	m.insert("RJNG".to_string(), "岐阜".to_string());
+	m.insert("RJTH".to_string(), "八丈島".to_string());
+	m.insert("RJSH".to_string(), "八戸".to_string());
+	m.insert("RJCH".to_string(), "函館".to_string());
+	m.insert("RJNH".to_string(), "浜松".to_string());
+	m.insert("RJSI".to_string(), "花巻".to_string());
+	m.insert("RORH".to_string(), "波照間".to_string());
+	m.insert("RJOA".to_string(), "広島".to_string());
+	m.insert("RJOF".to_string(), "防府".to_string());
+	m.insert("RJAH".to_string(), "百里".to_string());
+	m.insert("RORE".to_string(), "伊江島".to_string());
+	m.insert("RJDB".to_string(), "壱岐".to_string());
+	m.insert("RJTJ".to_string(), "入間".to_string());
+	m.insert("RJOI".to_string(), "岩国".to_string());
+	m.insert("RJOW".to_string(), "岩美".to_string());
+	m.insert("RJAW".to_string(), "硫黄島".to_string());
+	m.insert("RJOC".to_string(), "出雲".to_string());
+	m.insert("RODN".to_string(), "嘉手納".to_string());
+	m.insert("RJFK".to_string(), "鹿児島".to_string());
+	m.insert("RJDK".to_string(), "上五島".to_string());
+	m.insert("RJFY".to_string(), "鹿屋".to_string());
+	m.insert("RJBB".to_string(), "関西国際".to_string());
+	m.insert("RJAK".to_string(), "霞ヶ浦".to_string());
+	m.insert("RJSU".to_string(), "霞目".to_string());
+	m.insert("ROKR".to_string(), "慶良間".to_string());
+	m.insert("RJKI".to_string(), "喜界".to_string());
+	m.insert("RJTK".to_string(), "木更津".to_string());
+	m.insert("RORK".to_string(), "北大東".to_string());
+	m.insert("RJFR".to_string(), "北九州".to_string());
+	m.insert("RJBE".to_string(), "神戸".to_string());
+	m.insert("RJOK".to_string(), "高知".to_string());
+	m.insert("RJBK".to_string(), "岡南".to_string());
+	m.insert("RJNK".to_string(), "小松".to_string());
+	m.insert("RJAZ".to_string(), "神津島".to_string());
+	m.insert("RJFT".to_string(), "熊本".to_string());
+	m.insert("ROKJ".to_string(), "久米島".to_string());
+	m.insert("RJCK".to_string(), "釧路".to_string());
+	m.insert("RJAF".to_string(), "松本".to_string());
+	m.insert("RJST".to_string(), "松島".to_string());
+	m.insert("RJOM".to_string(), "松山".to_string());
+	m.insert("RJCM".to_string(), "女満別".to_string());
+	m.insert("RJDM".to_string(), "目達原".to_string());
+	m.insert("RJOH".to_string(), "美保".to_string());
+	m.insert("ROMD".to_string(), "南大東".to_string());
+	m.insert("RJAM".to_string(), "南鳥島".to_string());
+	m.insert("RJSM".to_string(), "三沢".to_string());
+	m.insert("RJTQ".to_string(), "三宅島".to_string());
+	m.insert("ROMY".to_string(), "宮古".to_string());
+	m.insert("RJFM".to_string(), "宮崎".to_string());
+	m.insert("RJEB".to_string(), "紋別".to_string());
+	m.insert("RJFU".to_string(), "長崎".to_string());
+	m.insert("RJNA".to_string(), "名古屋".to_string());
+	m.insert("ROAH".to_string(), "那覇".to_string());
+	m.insert("RJCN".to_string(), "中標津".to_string());
+	m.insert("RJBD".to_string(), "南紀白浜".to_string());
+	m.insert("RJAA".to_string(), "成田国際".to_string());
+	m.insert("RJCC".to_string(), "新千歳".to_string());
+	m.insert("ROIG".to_string(), "新石垣".to_string());
+	m.insert("RJSN".to_string(), "新潟".to_string());
+	m.insert("RJAN".to_string(), "新島".to_string());
+	m.insert("RJNW".to_string(), "能登".to_string());
+	m.insert("RJFN".to_string(), "新田原".to_string());
+	m.insert("RJCB".to_string(), "帯広".to_string());
+	m.insert("RJSR".to_string(), "大館能代".to_string());
+	m.insert("RJFO".to_string(), "大分".to_string());
+	m.insert("RJDO".to_string(), "小値賀".to_string());
+	m.insert("RJOB".to_string(), "岡山".to_string());
+	m.insert("RJNO".to_string(), "隠岐".to_string());
+	m.insert("RJKB".to_string(), "沖永良部".to_string());
+	m.insert("RJEO".to_string(), "奥尻".to_string());
+	m.insert("RJSO".to_string(), "大湊".to_string());
+	m.insert("RJDU".to_string(), "大村".to_string());
+	m.insert("RJOO".to_string(), "大阪国際".to_string());
+	m.insert("RJTO".to_string(), "大島".to_string());
+	m.insert("RJOZ".to_string(), "小月".to_string());
+	m.insert("RJCR".to_string(), "礼文".to_string());
+	m.insert("RJER".to_string(), "利尻".to_string());
+	m.insert("RJSD".to_string(), "佐渡".to_string());
+	m.insert("RJFS".to_string(), "佐賀".to_string());
+	m.insert("RJCO".to_string(), "丘珠".to_string());
+	m.insert("RJSS".to_string(), "仙台".to_string());
+	m.insert("RJTL".to_string(), "下総".to_string());
+	m.insert("RORS".to_string(), "下地島".to_string());
+	m.insert("RJNY".to_string(), "静浜".to_string());
+	m.insert("RJNS".to_string(), "静岡".to_string());
+	m.insert("RJSY".to_string(), "庄内".to_string());
+	m.insert("RJTC".to_string(), "立川".to_string());
+	m.insert("RJBT".to_string(), "但馬".to_string());
+	m.insert("RJOT".to_string(), "高松".to_string());
+	m.insert("RJFG".to_string(), "種子島".to_string());
+	m.insert("RORT".to_string(), "多良間".to_string());
+	m.insert("RJTE".to_string(), "館山".to_string());
+	m.insert("RJCT".to_string(), "十勝".to_string());
+	m.insert("RJKN".to_string(), "徳之島".to_string());
+	m.insert("RJOS".to_string(), "徳島".to_string());
+	m.insert("RJTT".to_string(), "東京国際".to_string());
+	m.insert("RJOR".to_string(), "鳥取".to_string());
+	m.insert("RJNT".to_string(), "富山".to_string());
+	m.insert("RJFZ".to_string(), "築城".to_string());
+	m.insert("RJDT".to_string(), "対馬".to_string());
+	m.insert("RJTU".to_string(), "宇都宮".to_string());
+	m.insert("RJCW".to_string(), "稚内".to_string());
+	m.insert("RJFC".to_string(), "屋久島".to_string());
+	m.insert("RJSC".to_string(), "山形".to_string());
+	m.insert("RJDC".to_string(), "山口宇部".to_string());
+	m.insert("RJOY".to_string(), "八尾".to_string());
+	m.insert("RJTY".to_string(), "横田".to_string());
+	m.insert("ROYN".to_string(), "与那国島".to_string());
+	m.insert("RORY".to_string(), "与論".to_string());
+	m
+});
