@@ -531,6 +531,7 @@ dependencies = [
 name = "kumasan_bot"
 version = "0.1.0"
 dependencies = [
+ "once_cell",
  "serenity",
  "tokio",
 ]

@@ -11,8 +11,11 @@ use serenity::framework::standard::{StandardFramework, CommandResult};
 use crate::commands::ping::*;
 use crate::commands::rjtt::*;
 
+//mod airport_vec;
+use crate::commands::airport_vec::AIRPORTS;
+
 #[group]
-#[commands(rjtt, ping)]
+#[commands(airport, code, ping)]
 struct General;
 
 struct Handler;
