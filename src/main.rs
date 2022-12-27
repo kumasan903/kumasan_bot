@@ -1,18 +1,11 @@
 mod commands;
-
 use std::env;
-
 use serenity::async_trait;
 use serenity::prelude::*;
-use serenity::model::channel::Message;
-use serenity::framework::standard::macros::{command, group};
-use serenity::framework::standard::{StandardFramework, CommandResult};
-
+use serenity::framework::standard::macros::group;
+use serenity::framework::standard::StandardFramework;
 use crate::commands::ping::*;
-use crate::commands::rjtt::*;
-
-//mod airport_vec;
-use crate::commands::airport_vec::AIRPORTS;
+use crate::commands::airports::*;
 
 #[group]
 #[commands(airport, code, ping)]

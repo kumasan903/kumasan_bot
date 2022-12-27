@@ -3,33 +3,7 @@ use serenity::framework::standard::CommandResult;
 use serenity::model::prelude::*;
 use serenity::prelude::*;
 use serenity::framework::standard::Args;
-use once_cell::sync::Lazy;
-use tokio::sync::RwLock;
-use std::sync::Arc;
-
-// mod airport_vec;
-// use self::airport_vec::AIRPORTS;
 use crate::commands::airport_vec::AIRPORTS;
-
-// #[derive(Debug)]
-// struct Airport {
-//     icao: String,
-//     name: String,
-// }
-
-// static AIRPORTS: Lazy<Vec<Airport>> = Lazy::new(|| vec![
-//     Airport
-//     {
-//         icao: "RJFF".to_string(),
-//         name: "福岡国際空港".to_string(),
-//     },
-//     Airport
-//     {
-//         icao: "RJTT".to_string(),
-//         name: "東京国際空港 (成田)".to_string(),
-//     },
-//     // 他の空港データもここに追加していく
-// ]);
 
 #[command]
 async fn airport(ctx: &Context, msg: &Message, mut args: Args) -> CommandResult {
